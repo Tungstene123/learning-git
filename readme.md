@@ -179,7 +179,3 @@ git add .
 git commit -m "Describe changes"
 git push
 ```
-
-***
-
-If you want, I can tailor this for a Linux-heavy workflow or add SSH setup (which you’ll probably prefer over HTTPS).
