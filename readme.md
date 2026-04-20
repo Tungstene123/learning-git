@@ -1,58 +1,185 @@
-# Learning git and version control on github
+# Git & GitHub Learning
 
-📌 What is Git?  
-Git is a distributed version control system that lets you save snapshots of your code.
+## What is Git
+Git is a distributed version control system that tracks changes in your code and lets you manage history.
 
-📌 What is GitHub?  
-GitHub is a cloud-based platform to store Git repositories and collaborate with developers.
+## What is GitHub
+GitHub is a cloud platform for hosting Git repositories and collaborating with others.
 
-🛠️ Basic Git Commands (with Examples)
+***
 
-1️⃣ git init  
-Initialize a Git repo in your project folder.
+## Initial Setup (First Time Only)
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your@email.com"
+git config --global init.defaultBranch main
+```
+
+Check config:
+```bash
+git config --list
+```
+
+***
+
+## Create or Initialize a Repository
+
+### Create a new repo locally
+```bash
 git init
+```
 
-2️⃣ git status  
-Check what changes are untracked or modified.
+### Clone an existing repo
+```bash
+git clone https://github.com/username/repo.git
+cd repo
+```
+
+***
+
+## Basic Workflow
+
+### Check status
+```bash
 git status
+```
 
-3️⃣ git add  
-Add files to staging area (preparing them for commit).
+### Add files to staging
+```bash
 git add index.html
-git add.     # Adds all files
+git add .              # Add all files
+```
 
-4️⃣ git commit  
-Save the snapshot with a message.
-git commit -m "Added homepage structure"
+### Commit changes
+```bash
+git commit -m "Add homepage structure"
+```
 
-5️⃣ git log  
-See the history of commits.
+### View history
+```bash
 git log
+git log --oneline --graph
+```
 
-🌐 Using GitHub
+***
 
-6️⃣ git remote add origin  
-Connect your local repo to GitHub.
-git remote add origin https://github.com/yourusername/repo.git
+## Working with GitHub (Remote)
 
-7️⃣ git push  
-Push your local commits to GitHub.
+### Add remote repository
+```bash
+git remote add origin https://github.com/username/repo.git
+```
+
+### Verify remote
+```bash
+git remote -v
+```
+
+### Push to GitHub (first time)
+```bash
 git push -u origin main
+```
 
-8️⃣ git pull  
-Pull latest changes from GitHub.
+### Push updates
+```bash
+git push
+```
+
+### Pull changes
+```bash
 git pull origin main
+```
 
-🪫 Collaboration Basics
+***
 
-🔀 Branching & Merging
+## Branching and Merging
+
+### Create a branch
+```bash
 git branch feature-navbar
+```
+
+### Switch branch
+```bash
 git checkout feature-navbar
-# Make changes, then:
-git add.
-git commit -m "Added navbar"
+# or modern:
+git switch feature-navbar
+```
+
+### Create and switch in one command
+```bash
+git checkout -b feature-navbar
+# or:
+git switch -c feature-navbar
+```
+
+### Merge into main
+```bash
 git checkout main
 git merge feature-navbar
+```
 
-🔵 Pull Requests  
-Used on GitHub to review & merge code between branches.
+### Delete branch
+```bash
+git branch -d feature-navbar
+```
+
+***
+
+## Undo and Fix Mistakes
+
+### Unstage a file
+```bash
+git restore --staged file.txt
+```
+
+### Discard local changes
+```bash
+git restore file.txt
+```
+
+### Amend last commit
+```bash
+git commit --amend -m "Updated message"
+```
+
+***
+
+## .gitignore Example
+
+Create a `.gitignore` file to exclude files:
+
+```
+node_modules/
+.env
+*.log
+build/
+```
+
+***
+
+## Pull Requests (GitHub)
+
+- Push your branch:
+```bash
+git push -u origin feature-navbar
+```
+
+- Open a Pull Request on GitHub
+- Review and merge into `main`
+
+***
+
+## Typical Daily Workflow
+
+```bash
+git pull
+git add .
+git commit -m "Describe changes"
+git push
+```
+
+***
+
+If you want, I can tailor this for a Linux-heavy workflow or add SSH setup (which you’ll probably prefer over HTTPS).
